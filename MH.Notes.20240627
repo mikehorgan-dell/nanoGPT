@@ -4,4 +4,23 @@ First run of bench.py on Dell CEC VM (4x Xeon Cascade Lake):
     - Had to modify bench.py slightly to remove dependency on working CUDA (mike_local branch)
     - running with generated data rather than openwebtext data - openwebtext is about 54GB (maybe later)
     - Output/Results: 
+        bench.py --device=cpu --compile=False --real_data=False 
+        Overriding: device = cpu
+        Overriding: compile = False
+        Overriding: real_data = False
+        number of parameters: 123.59M
+        num decayed parameter tensors: 50, with 124,354,560 parameters
+        num non-decayed parameter tensors: 25, with 19,200 parameters
+        using fused AdamW: False
+        0/10 loss: 10.9793
+        ...
+        19/20 loss: 6.1959
+        time per iteration: 31153.7249ms, MFU: 0.11%
 
+--------------------
+
+Messing wiht the OpenWebText data set.  The prepare.py load script was failing with a ValueError realted to array 
+copy behavior in teh np.concatenate() call; turns out this is an issue with numpy 2.0 being incompatible with older code.
+Added a requirements.txt file to the project to install the correct versions.
+
+---------------------
