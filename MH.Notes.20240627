@@ -19,8 +19,22 @@ First run of bench.py on Dell CEC VM (4x Xeon Cascade Lake):
 
 --------------------
 
-Messing wiht the OpenWebText data set.  The prepare.py load script was failing with a ValueError realted to array 
-copy behavior in teh np.concatenate() call; turns out this is an issue with numpy 2.0 being incompatible with older code.
+Messing with the OpenWebText data set.  The prepare.py load script was failing with a ValueError related to array 
+copy behavior in the np.concatenate() call; turns out this is an issue with numpy 2.0 being incompatible with older code.
 Added a requirements.txt file to the project to install the correct versions.
 
 ---------------------
+Switching the CPU-hosted bench.py run to use the openwebtext 'real' data set made little difference (other than greater loss after 20 iterations), 
+but it was interesting to make it work:
+        bench.py --device=cpu --compile=False --real_data=True 
+        Overriding: device = cpu
+        Overriding: compile = False
+        Overriding: real_data = True
+        number of parameters: 123.59M
+        num decayed parameter tensors: 50, with 124,354,560 parameters
+        num non-decayed parameter tensors: 25, with 19,200 parameters
+        using fused AdamW: False
+        0/10 loss: 10.9770
+        ...
+        19/20 loss: 8.0650
+        time per iteration: 30752.1299ms, MFU: 0.11%
