@@ -1,0 +1,7 @@
+Just recording some notes during experimentation.
+
+First run of bench.py on Dell CEC VM (4x Xeon Cascade Lake):
+    - Had to modify bench.py slightly to remove dependency on working CUDA (mike_local branch)
+    - running with generated data rather than openwebtext data - openwebtext is about 54GB (maybe later)
+    - Output/Results: 
+
