@@ -1,7 +1,9 @@
 numpy<2
 tiktoken
-torch
-torchvision
+# Pytorch is picky about Cuda versions. See https://pytorch.org/get-started/locally/ 
+# for the approved way to get it iinstalled.
+# torch
+# torchvision
 tqdm
 datasets
 wandb
